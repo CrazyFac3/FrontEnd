@@ -27,7 +27,7 @@ button {
     background-position: center, center;
     background-repeat: repeat, no-repeat;
     background-size: cover, 140px 140px;
-    background-image: url("bubble.png"), url("camera_icon.png");
+    background-image: url("images/bubble.png"), url("images/camera_icon.png");
     width: 20vw;
     height: 20vw;
     border-radius: 300px;
