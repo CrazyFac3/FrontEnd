@@ -6,3 +6,11 @@
 div{
     
 }
+.back-button{
+    height: 50px;
+    width: 50px;
+    background-color: transparent;
+    border: transparent;
+    font-size: 75px;
+    float: left;
+}
