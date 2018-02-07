@@ -1,4 +1,15 @@
+body{
+    background-color: #E0F7FA;
+}
+
+.topLoginDiv{
+    position: fixed;
+    margin-top: 20%;
+    width: 100%;
+ }
+
  img {
+    width: 65%;
     border-radius: 50%;
     display: block;
     margin-left: auto;
@@ -6,15 +17,19 @@
 }   
 
 .logInDiv{
+    margin-top: 40%;
     width: 100%;
     position: fixed;
-    bottom: 20%;
-    text-align: center;   
+    text-align: center;
 }
 
-button {
-    width: 60px;
-    height: 60px;
+button { 
+    background-position: center, center;
+    background-repeat: repeat, no-repeat;
+    background-size: cover, 140px 140px;
+    background-image: url("bubble.png"), url("camera_icon.png");
+    width: 20vw;
+    height: 20vw;
     border-radius: 300px;
     text-align: center;
 }
