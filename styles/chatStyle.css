@@ -3,6 +3,7 @@
     left: 35%;
     border-radius: 50%;
     margin: auto;
+    height: 15vh;
 }
 .back-button{
     height: 75px;
@@ -14,11 +15,12 @@
 }
 body{
     background-color: #6ec6ff;
+    overflow: hidden;
 }
 #mainbox{
     background-color: #DEE2FF;
     border: 2px solid #dedede;
-    height: 1000px;
+    height: 60vh;
     width: 100%;
     overflow: scroll;
 }
@@ -42,4 +44,42 @@ body{
 .user-m{
     background-color: aqua;
     left: 30%
+}
+.button{
+    background-color: Transparent;
+    border: none;
+    width: 100%;
+    font-size: 40px;
+}
+
+#keyboard{
+    position: relative;
+    bottom: 0;
+    max-width: 100%;
+    height: 25vh;
+    overflow: scroll;
+}
+
+#key{
+    width: 100%;
+    position: absolute;
+    bottom: 5em;
+
+}
+
+#tchat{
+    position: relative;
+    overflow: scroll;
+    width: 100%;
+}
+
+
+tbody{
+    height: 100px;
+    width: 100%;
+}
+
+#header{
+    height: 15vh;
+
 }
