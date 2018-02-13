@@ -1,8 +1,11 @@
 .user{
     position: relative;
-    left: 35%;
+    left: 10%;
     border-radius: 50%;
-    margin: auto;
+    margin-right: 50px;
+    margin-left: 50px;
+    width: 225px;
+    height: 225px;
 }
 .back-button{
     height: 75px;
@@ -22,7 +25,7 @@ body{
     width: 100%;
     overflow: scroll;
 }
-.message{
+.message{   
     text-align: center;
     font-size:300%;
     font-family: Arial, Helvetica, sans-serif;
@@ -30,8 +33,8 @@ body{
     padding: 20px;
     position: relative;
     margin-top: 20px;
-    width: 60%;
-    height: max-content;
+    min-width: 60%;
+    width: max-content;
     padding: 0px, 0px;
 }
 .client-m{
@@ -41,5 +44,5 @@ body{
 
 .user-m{
     background-color: aqua;
-    left: 30%
+    left: 30%;
 }
