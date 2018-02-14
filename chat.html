@@ -30,6 +30,10 @@
         <div class="message user-m">&#x1F601  &#x1F601 &#x1F601</div>
         <div class="message user-m">&#x1F601  &#x1F601 &#x1F601</div>
     </div>
+    <div id= "preview">
+        
+    </div>
+    <span><button onclick="SendEmoji()" id= "sendbox"> send here!</button></span>
     <div id="keyboard">
         <table id="tchat">
                 <tr>
@@ -216,10 +220,26 @@
     </div>
     <script>
         var msg = []
-        function PrintEmoji(param){
-            document.getElementById("key").innerHTML += document.getElementById(param).innerHTML
+        function PrintEmoji(param){ 
+            
+            preview_box = document.getElementById("preview")
+            preview_box.innerHTML += document.getElementById(param).innerHTML
             msg.push(document.getElementById(param).innerHTML)
         }
+        function SendEmoji(){
+            if(msg.length == 0){
+                return null
+            }
+            var new_msg = document.createElement("DIV")
+            new_msg.className = "message user-m"
+            new_msg.innerHTML = msg.join("")
+            document.getElementById("mainbox").appendChild(new_msg)
+            document.getElementById("mainbox").scrollTop = document.getElementById("mainbox").scrollHeight;
+            msg=[]
+            document.getElementById("preview").innerHTML = null
+
+        }
+
     </script>
 </body>
 </html>

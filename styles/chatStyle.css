@@ -2,15 +2,8 @@
     position: relative;
     left: 10%;
     border-radius: 50%;
-<<<<<<< HEAD
     margin: auto;
     height: 15vh;
-=======
-    margin-right: 50px;
-    margin-left: 50px;
-    width: 225px;
-    height: 225px;
->>>>>>> 78cb615c2e29ac11afd4e4c485e0ea9f1a912dc7
 }
 .back-button{
     height: 75px;
@@ -50,7 +43,6 @@ body{
 
 .user-m{
     background-color: aqua;
-<<<<<<< HEAD
     left: 30%
 }
 .button{
@@ -90,7 +82,18 @@ tbody{
 #header{
     height: 15vh;
 
-=======
     left: 30%;
->>>>>>> 78cb615c2e29ac11afd4e4c485e0ea9f1a912dc7
+}
+
+#preview{
+    height: 8vh;
+    position: relative;
+    font-size: 40px;
+    text-align: center;
+    text-anchor: middle;
+
+}
+
+#sendbox{
+    float: right;
 }
