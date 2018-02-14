@@ -1,0 +1,16 @@
+.user{
+    position: relative;
+    left: 35%;
+    border-radius: 50%;
+}
+div{
+    
+}
+.back-button{
+    height: 75px;
+    width: 75px;
+    background-color: transparent;
+    border: transparent;
+    font-size: 60px;
+    float: left;
+}
