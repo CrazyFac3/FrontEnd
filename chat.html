@@ -34,7 +34,7 @@
     <div id= "preview">
         
     </div>
-    <span><button onclick="SendEmoji()" id= "sendbox"> send here!</button></span>
+    <span><button onclick="SendEmoji()" id= "sendbox" class="back-button">&#x1F44D</button></span>
     <div id="keyboard">
         <table id="tchat">
                 <tr>
@@ -232,7 +232,7 @@
                 return null
             }
             var new_msg = document.createElement("DIV")
-            new_msg.className = "message user-m"
+            new_msg.className = "message client-m"
             new_msg.innerHTML = msg.join("")
             document.getElementById("mainbox").appendChild(new_msg)
             document.getElementById("mainbox").scrollTop = document.getElementById("mainbox").scrollHeight;
