@@ -4,26 +4,22 @@
     border-radius: 50%;
     margin: auto;
     height: 15vh;
-    margin-right: 50px;
-    margin-left: 50px;
-    min-width: 225px;
-    max-height: 225px;
+    margin-left: 5vh;
+    max-height: 15vh;
+    min-width: 15vh;
+    max-width: 15vh;
 }
 .back-button{
-    height: 75px;
-    width: 75px;
-    background-color: #DEE2FF;
+    height: 5vh;
+    width: 5vh;
     border: transparent;
     font-size: 60px;
     float: left;
 }
 body{
-    background-color: #6ec6ff;
     overflow: hidden;
 }
 #mainbox{
-    background-color: #DEE2FF;
-    border: 2px solid #dedede;
     height: 60vh;
     width: 100%;
     overflow: scroll;
@@ -41,13 +37,10 @@ body{
     padding: 0px, 0px;
 }
 .client-m{
-    background-color: #8372DB;
     left: 10%;
 }
 
 .user-m{
-    background-color: aqua;
-<<<<<<< HEAD
     left: 30%
 }
 .button{
@@ -87,7 +80,18 @@ tbody{
 #header{
     height: 15vh;
 
-=======
     left: 30%;
->>>>>>> 78cb615c2e29ac11afd4e4c485e0ea9f1a912dc7
+}
+
+#preview{
+    height: 8vh;
+    position: relative;
+    font-size: 40px;
+    text-align: center;
+    text-anchor: middle;
+
+}
+
+#sendbox{
+    float: right;
 }
