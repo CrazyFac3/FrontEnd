@@ -1,16 +1,97 @@
 .user{
     position: relative;
-    left: 35%;
+    left: 10%;
     border-radius: 50%;
-}
-div{
-    
+    margin: auto;
+    height: 15vh;
+    margin-left: 5vh;
+    max-height: 15vh;
+    min-width: 15vh;
+    max-width: 15vh;
 }
 .back-button{
-    height: 75px;
-    width: 75px;
-    background-color: transparent;
+    height: 5vh;
+    width: 5vh;
     border: transparent;
     font-size: 60px;
     float: left;
+}
+body{
+    overflow: hidden;
+}
+#mainbox{
+    height: 60vh;
+    width: 100%;
+    overflow: scroll;
+}
+.message{   
+    text-align: center;
+    font-size:300%;
+    font-family: Arial, Helvetica, sans-serif;
+    border-radius: 10px;
+    padding: 20px;
+    position: relative;
+    margin-top: 20px;
+    min-width: 60%;
+    width: max-content;
+    padding: 0px, 0px;
+}
+.client-m{
+    left: 10%;
+}
+
+.user-m{
+    left: 30%
+}
+.button{
+    background-color: Transparent;
+    border: none;
+    width: 100%;
+    font-size: 40px;
+}
+
+#keyboard{
+    position: relative;
+    bottom: 0;
+    max-width: 100%;
+    height: 25vh;
+    overflow: scroll;
+}
+
+#key{
+    width: 100%;
+    position: absolute;
+    bottom: 5em;
+
+}
+
+#tchat{
+    position: relative;
+    overflow: scroll;
+    width: 100%;
+}
+
+
+tbody{
+    height: 100px;
+    width: 100%;
+}
+
+#header{
+    height: 15vh;
+
+    left: 30%;
+}
+
+#preview{
+    height: 8vh;
+    position: relative;
+    font-size: 40px;
+    text-align: center;
+    text-anchor: middle;
+
+}
+
+#sendbox{
+    float: right;
 }
