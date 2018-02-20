@@ -10,8 +10,8 @@
 <body class="background-c">
     <div id="header">
         <button onclick="location.href = './html/contacts.html'"; type="button" class="back-button background-c">&#x2B05</button>
-        <img src="./images/user.jpg" class="user"/>
-        <img src="./images/friend.jpeg" class="user"/>
+        <img src="" id="user" class="user"/>
+        <img src="" id="friend" class="user"/>
     </div>
     <div id="mainbox">
         <div class="message client-m">&#x1F601  &#x1F601 &#x1F601</div>
@@ -240,7 +240,39 @@
             document.getElementById("preview").innerHTML = null
 
         }
-
+        function setImg(){
+            var photo = {
+                    "participent":{
+                        "userImg":"./images/user.jpg",
+                        "friendImg":"./images/friend.jpeg"
+                    },
+                    "messages": {
+                        "1": {
+                            "text": "🕡🕡🕡",
+                            "sender": "1"
+                        },
+                        "2": {
+                            "text": "🕡🕡🕡",
+                            "sender": "2"
+                        },
+                        "3": {
+                            "text": "🕡🕡🕡",
+                            "sender": "2"
+                        },
+                        "4": {
+                            "text": "🕡🕡🕡",
+                            "sender": "1"
+                        }
+                    }
+                };
+            document.getElementById("user").src=photo["participent"]["userImg"]
+            document.getElementById("friend").src=photo["participent"]["friendImg"]
+        //         fetch("./conversietion_demo.json").then(
+        //         function(json){
+        //             console.log("hi",json)
+        //         }); 
+         }
+         setImg()
     </script>
 </body>
 </html>
