@@ -46,22 +46,22 @@
                     var str = {
                             "messages": {
                                 "1": {
-                                    "text": "🕡🕡🕡",
+                                    "text": "??????",
                                     "sender": "1",
                                     "message_id": "123456"
                                 },
                                 "2": {
-                                    "text": "🕡🕡🕡",
+                                    "text": "??????",
                                     "sender": "2",
                                     "message_id": "1234567"
                                 },
                                 "3": {
-                                    "text": "🕡🕡🕡",
+                                    "text": "??????",
                                     "sender": "2",
                                     "message_id": "12345698"
                                 },
                                 "4": {
-                                    "text": "🕡🕡🕡",
+                                    "text": "??????",
                                     "sender": "1",
                                     "message_id": "1234561212"
                                 }
@@ -71,7 +71,7 @@
         
                     if (lastMessege == null) {
                         var peep = "message client-m"
-                        key2keep = null
+                        var key2keep = null
                         var started = false
                             for(var key in str["messages"]){
                                 id = str["messages"][key]["message_id"]
@@ -87,21 +87,56 @@
                                 started = true
                                 new_msg = str["messages"][key]["text"]
                                 sender = str["messages"][key]["sender"]
+                                console.log("the sender is" + sender)
                                 id = str["messages"][key]["message_id"]
-                                if (lastMessege == id)
+                                //if(last_massge == id)
                                 if (sender == 2)
-                                   peep = "message user-m"
+                                peep = "message user-m"
                                 else
-                                   peep  = "message client-m"
+                                peep  = "message client-m"
                                 SendEmoji(peep, new_msg)
                                 lastMessege = id 
-                                }
+
+                                
                                 
                         }
                                              
                     }
                 }
-        
+                }
+            function setImg(){
+            var photo = {
+                    "participent":{
+                        "userImg":"../images/user.jpg",
+                        "friendImg":"../images/friend.jpeg"
+                    },
+                    "messages": {
+                        "1": {
+                            "text": "🕡🕡🕡",
+                            "sender": "1"
+                        },
+                        "2": {
+                            "text": "🕡🕡🕡",
+                            "sender": "2"
+                        },
+                        "3": {
+                            "text": "🕡🕡🕡",
+                            "sender": "2"
+                        },
+                        "4": {
+                            "text": "🕡🕡🕡",
+                            "sender": "1"
+                        }
+                    }
+                };
+            document.getElementById("user").src=photo["participent"]["userImg"]
+            document.getElementById("friend").src=photo["participent"]["friendImg"]
+        //         fetch("./conversietion_demo.json").then(
+        //         function(json){
+        //             console.log("hi",json)
+        //         }); 
+         }
+         setImg()
             </script>
     <div id="header">
         <button onclick="location.href = './html/contacts.html'" ; type="button" class="back-button background-c">&#x2B05</button>
@@ -622,22 +657,7 @@
         </table>
     </div>
    
-    <script>
-        function setImg(){
-            var photo = {
-                    "participent":{
-                        "userImg":"../images/user.jpg",
-                        "friendImg":"../images/friend.jpeg"
-                    }};
-            document.getElementById("user").src=photo["participent"]["userImg"]
-            document.getElementById("friend").src=photo["participent"]["friendImg"]
-        //         fetch("./conversietion_demo.json").then(
-        //         function(json){
-        //             console.log("hi",json)
-        //         }); 
-         }
-         setImg()
-    </script>
+
 </body>
 
 </html>
