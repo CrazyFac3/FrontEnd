@@ -6,6 +6,9 @@
     <link rel="stylesheet" href="./styles/chatStyle.css" />
     <link rel="stylesheet" href="./styles/colors.css" />
     <meta charset='utf8' />
+    <link rel="stylesheet" href="../styles/chatStyle.css"/>
+    <link rel="stylesheet" href="../styles/colors.css"/>
+    <meta charset='utf8'/>
 </head>
 
 <body class="background-c">
@@ -86,7 +89,6 @@
                                 sender = str["messages"][key]["sender"]
                                 id = str["messages"][key]["message_id"]
                                 if (lastMessege == id)
-                                console.log("Hooooooooooooooo")
                                 if (sender == 2)
                                    peep = "message user-m"
                                 else
@@ -106,6 +108,9 @@
         <img src="./images/user.jpg" class="user" />
         <img src="./images/friend.jpeg" class="user" />
         
+        <button onclick="location.href = '../html/contacts.html'"; type="button" class="back-button background-c">&#x2B05</button>
+        <img src="" id="user" class="user"/>
+        <img src="" id="friend" class="user"/>
     </div>
     <div id="mainbox">
         <script>manageJson()</script>
@@ -617,6 +622,22 @@
         </table>
     </div>
    
+    <script>
+        function setImg(){
+            var photo = {
+                    "participent":{
+                        "userImg":"../images/user.jpg",
+                        "friendImg":"../images/friend.jpeg"
+                    }};
+            document.getElementById("user").src=photo["participent"]["userImg"]
+            document.getElementById("friend").src=photo["participent"]["friendImg"]
+        //         fetch("./conversietion_demo.json").then(
+        //         function(json){
+        //             console.log("hi",json)
+        //         }); 
+         }
+         setImg()
+    </script>
 </body>
 
 </html>
