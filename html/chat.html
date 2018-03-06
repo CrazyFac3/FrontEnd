@@ -3,9 +3,6 @@
 
 <head>
     <title>chat</title>
-    <link rel="stylesheet" href="./styles/chatStyle.css" />
-    <link rel="stylesheet" href="./styles/colors.css" />
-    <meta charset='utf8' />
     <link rel="stylesheet" href="../styles/chatStyle.css"/>
     <link rel="stylesheet" href="../styles/colors.css"/>
     <meta charset='utf8'/>
@@ -140,12 +137,9 @@
             </script>
     <div id="header">
         <button onclick="location.href = './html/contacts.html'" ; type="button" class="back-button background-c">&#x2B05</button>
-        <img src="./images/user.jpg" class="user" />
-        <img src="./images/friend.jpeg" class="user" />
-        
-        <button onclick="location.href = '../html/contacts.html'"; type="button" class="back-button background-c">&#x2B05</button>
-        <img src="" id="user" class="user"/>
-        <img src="" id="friend" class="user"/>
+        <img src="../images/user.jpg" id= "user" class="user" />
+        <img src="../images/friend.jpeg" id="friend" class="user" />
+        <script>setImg()</script>    
     </div>
     <div id="mainbox">
         <script>manageJson()</script>
