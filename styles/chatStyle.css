@@ -13,7 +13,6 @@
     height: 5vh;
     width: 5vh;
     border: transparent;
-    font-size: 60px;
     float: left;
 }
 body{
@@ -26,7 +25,6 @@ body{
 }
 .message{   
     text-align: center;
-    font-size:300%;
     font-family: Arial, Helvetica, sans-serif;
     border-radius: 10px;
     padding: 20px;
@@ -47,7 +45,6 @@ body{
     background-color: Transparent;
     border: none;
     width: 100%;
-    font-size: 40px;
 }
 
 #keyboard{
@@ -86,7 +83,6 @@ tbody{
 #preview{
     height: 8vh;
     position: relative;
-    font-size: 40px;
     text-align: center;
     text-anchor: middle;
 
