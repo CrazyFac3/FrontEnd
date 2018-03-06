@@ -5,6 +5,7 @@
     <title>chat</title>
     <link rel="stylesheet" href="../styles/chatStyle.css"/>
     <link rel="stylesheet" href="../styles/colors.css"/>
+    <script src="../settings/loginSettings.js"></script>
     <meta charset='utf8'/>
 </head>
 
@@ -169,9 +170,15 @@
     <div id="preview">
 
     </div>
-    <span>
-        <button onclick="SendEmoji('message user-m')" id="sendbox" class="back-button">&#x1F44D</button>
-        <button onclick="DeleteEmoji()" class="back-button" id="delete_button">👎</button>
+    <span class="side-span">
+        <ul>
+            <li><button onclick="SendEmoji('message user-m')" class="side-buttons background-c">&#x1F44D</button></li>
+            <li><button onclick="DeleteEmoji()" class="side-buttons background-c">&#x21A9</button></li>
+            <li><button onclick="logInClicked()" class="side-buttons" id="cameraBtn"><input class="inputfile" type="file" accept="image/*" capture /></button></li>
+                <canvas id="canvas" width="320" height="240"></canvas>
+                <video id="player" controls autoplay></video>
+                <!-- <span id="cameraSpan">&#x1F4F7</span> -->
+        </ul>>
     </span>
     <div id="keyboard">
         <table id="tchat">

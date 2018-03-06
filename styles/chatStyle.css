@@ -98,6 +98,34 @@ tbody{
 
 #delete_button{
     position: relative
-    
+}
 
+.side-buttons{
+    height: 5vh;
+    width: 5vh;
+    border: transparent;
+    font-size: 60px;
+    float: right;
+}
+
+ul{
+    list-style-type: none;
+}
+
+canvas, video{
+    display: none;
+    opacity: 0;
+}
+
+#cameraBtn{
+    background-image: url("../images/camera_icon.png");
+    background-size: cover, 5vh 5vh;
+}
+
+input{
+    opacity: 0;
+}
+
+.side-span{
+    float: right;
 }
