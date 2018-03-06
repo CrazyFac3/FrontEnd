@@ -24,7 +24,7 @@
                     }
                     var new_msg = document.createElement("DIV")
                     new_msg.className = classs
-                    if (typeof source == Array)
+                    if (source.constructor == Array)
                        new_msg.innerHTML = source.join("")
                     else
                        new_msg.innerHTML = source
@@ -43,22 +43,22 @@
                     var str = {
                             "messages": {
                                 "1": {
-                                    "text": "??????",
+                                    "text": "🕡🕡🕡",
                                     "sender": "1",
                                     "message_id": "123456"
                                 },
                                 "2": {
-                                    "text": "??????",
+                                    "text": "🕡🕡🕡",
                                     "sender": "2",
                                     "message_id": "1234567"
                                 },
                                 "3": {
-                                    "text": "??????",
+                                    "text": "🕡🕡🕡",
                                     "sender": "2",
                                     "message_id": "12345698"
                                 },
                                 "4": {
-                                    "text": "??????",
+                                    "text": "🕡🕡🕡",
                                     "sender": "1",
                                     "message_id": "1234561212"
                                 }
@@ -133,10 +133,9 @@
         //             console.log("hi",json)
         //         }); 
          }
-         setImg()
             </script>
     <div id="header">
-        <button onclick="location.href = './html/contacts.html'" ; type="button" class="back-button background-c">&#x2B05</button>
+        <button onclick="location.href = './contacts.html'" ; type="button" class="back-button background-c">&#x2B05</button>
         <img src="../images/user.jpg" id= "user" class="user" />
         <img src="../images/friend.jpeg" id="friend" class="user" />
         <script>setImg()</script>    
