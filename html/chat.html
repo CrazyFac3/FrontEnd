@@ -12,6 +12,13 @@
         <script>
                 var msg = []
                 var lastMessege = null
+                function DeleteEmoji(){
+                    preview_box = document.getElementById("preview")
+                    if(preview_box.innerHTML){
+                        msg.splice(-1,1)
+                        preview_box.innerHTML = msg.join("")
+                    }
+                }
                 function PrintEmoji(param) {
         
                     preview_box = document.getElementById("preview")
@@ -163,7 +170,8 @@
 
     </div>
     <span>
-        <button onclick="SendEmoji('message client-m')" id="sendbox" class="back-button">&#x1F44D</button>
+        <button onclick="SendEmoji('message user-m')" id="sendbox" class="back-button">&#x1F44D</button>
+        <button onclick="DeleteEmoji()" class="back-button" id="delete_button">👎</button>
     </span>
     <div id="keyboard">
         <table id="tchat">

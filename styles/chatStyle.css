@@ -95,3 +95,9 @@ tbody{
 #sendbox{
     float: right;
 }
+
+#delete_button{
+    position: relative
+    
+
+}
