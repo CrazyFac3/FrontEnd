@@ -38,10 +38,12 @@ body{
 }
 .client-m{
     float: left;
+    left: 1.5%;
 }
 
 .user-m{
     float: right;
+    right: 1.5%;
 }
 .button{
     background-color: Transparent;
