@@ -1,0 +1,47 @@
+
+    .general
+    { 
+        border-radius: 50%;
+    }
+
+    .add-on-button
+    {
+        position: absolute;
+    }
+
+    .rand-img {
+        height: 250px;
+        width: 250px;
+        }
+
+    .rand-button {
+        left: 350px;
+        height: 250px;
+        width: 250px;
+        }
+    
+    .person1-button {
+        top: 300px;
+        left: 600px;
+        }
+    
+    .person2-button {
+        top: 450px;
+        left: 50px;
+        }
+
+    .person3-button {
+        top: 900px;
+        left: 530px;
+        }
+    .person4-button {
+        top: 1200px;
+        left: 90px;
+        }
+
+    .person5-button {
+        top: 1500px;
+        left: 500px;
+        }
+
+    
