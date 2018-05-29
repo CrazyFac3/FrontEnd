@@ -13,41 +13,42 @@
     height: 5vh;
     width: 5vh;
     border: transparent;
-    font-size: 60px;
     float: left;
 }
 body{
     overflow: hidden;
 }
 #mainbox{
-    height: 60vh;
+    height: 45vh;
     width: 100%;
-    overflow: scroll;
+    overflow-x: hidden;
+    overflow-y: scroll;
 }
 .message{   
     text-align: center;
-    font-size:300%;
+    text-anchor: middle;
     font-family: Arial, Helvetica, sans-serif;
     border-radius: 10px;
     padding: 20px;
-    position: relative;
     margin-top: 20px;
     min-width: 60%;
     width: max-content;
     padding: 0px, 0px;
+    position: relative;
 }
 .client-m{
-    left: 10%;
+    float: left;
+    left: 1.5%;
 }
 
 .user-m{
-    left: 30%
+    float: right;
+    right: 1.5%;
 }
 .button{
     background-color: Transparent;
     border: none;
     width: 100%;
-    font-size: 40px;
 }
 
 #keyboard{
@@ -55,7 +56,9 @@ body{
     bottom: 0;
     max-width: 100%;
     height: 25vh;
-    overflow: scroll;
+    overflow-x: scroll;
+    overflow-y: scroll;
+    
 }
 
 #key{
@@ -67,7 +70,8 @@ body{
 
 #tchat{
     position: relative;
-    overflow: scroll;
+    overflow-x: hidden;
+    overflow-y: scroll;
     width: 100%;
 }
 
@@ -86,7 +90,6 @@ tbody{
 #preview{
     height: 8vh;
     position: relative;
-    font-size: 40px;
     text-align: center;
     text-anchor: middle;
 
@@ -98,6 +101,33 @@ tbody{
 
 #delete_button{
     position: relative
-    
+}
 
+.side-buttons{
+    height: 5vh;
+    width: 5vh;
+    border: transparent;
+    float: right;
+}
+
+ul{
+    list-style-type: none;
+}
+
+canvas, video{
+    display: none;
+    opacity: 0;
+}
+
+#cameraBtn{
+    background-image: url("../images/camera_icon.png");
+    background-size: cover, 5vh 5vh;
+}
+
+input{
+    opacity: 0;
+}
+
+.side-span{
+    float: right;
 }
