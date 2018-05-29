@@ -10,6 +10,8 @@
     max-width: 12vh;
 }
 .back-button{
+    z-index: 999;
+    position: fixed;
     height: 5vh;
     width: 5vh;
     border: transparent;
@@ -90,13 +92,22 @@ tbody{
 #header img{
     margin: auto;
     margin-top: 2vw;
-    margin-left: 3vw;
-    margin-right: 3vw;
     box-shadow: 0px 8px 18px 2px #888888;
 }
 
-#header #user{
-    margin-left: 0;
+.top-img {
+    padding-left: 12vw;
+    padding-right: 12vw;
+    align-content: center;
+}
+
+.user {
+    margin: 0;
+    padding: 0;
+}
+
+img#user {
+    margin-right: 4vw;
 }
 
 #preview{
