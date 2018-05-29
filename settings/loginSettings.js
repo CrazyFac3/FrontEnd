@@ -1,5 +1,5 @@
 // JavaScript Document
-
+const server_url = ""
 const player = document.getElementById('player');
 const canvas = document.getElementById('canvas');
 const context = canvas.getContext('2d');
@@ -45,7 +45,7 @@ getBase64(file); // prints the base64 string
 
 function sendImage(img){
 	var user_image = {"photo":getBase64(canvas)}
-	$.post( "",user_image, function() {
+	$.post(server_url, user_image, function() {
 		alert( "image sent succesfully" );
 	  })
 }
