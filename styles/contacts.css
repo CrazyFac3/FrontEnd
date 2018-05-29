@@ -1,0 +1,52 @@
+
+    body{
+        overflow: hidden;
+    }
+
+    .general
+    { 
+        margin: 0;
+        border-radius: 50%;
+    }
+
+    .add-on-button
+    {
+        position: fixed;
+    }
+
+    .rand-img {
+        height: 15vh;
+        width: 15vh;
+        }
+
+    .rand-button {
+        left: 20vh;
+        height: 15vh;
+        width: 15vh;
+        }
+    
+    .person1-button {  
+        top: 18vh;
+        left: 28vh;
+        }
+    
+    .person2-button {
+        top: 25vh;
+        left: 5vh;
+        }
+
+    .person3-button {
+        top: 45vh;
+        left: 30vh;
+        }
+    .person4-button {
+        top: 55vh;
+        left: 5vh;
+        }
+
+    .person5-button {
+        top: 75vh;
+        left: 20vh;
+        }
+
+    
