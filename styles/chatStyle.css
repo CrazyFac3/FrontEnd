@@ -87,6 +87,7 @@ tbody{
 #header{
     align-content: center;
     height: 15vh;
+    position: fixed;
 }
 
 #header img{
@@ -110,6 +111,9 @@ img#user {
     margin-right: 4vw;
 }
 
+#mainbox {
+    padding-top: 30vw;
+}
 #preview{
     padding-top: 4vw;
     background-color: #ffffff;
