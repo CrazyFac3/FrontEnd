@@ -19,6 +19,7 @@ body{
     overflow: hidden;
 }
 #mainbox{
+    top: 0;
     height: 45vh;
     width: 100%;
     overflow-x: hidden;
@@ -82,18 +83,33 @@ tbody{
 }
 
 #header{
+    align-content: center;
     height: 15vh;
+}
 
-    left: 30%;
+#header img{
+    margin: auto;
+    margin-top: 2vw;
+    margin-left: 3vw;
+    margin-right: 3vw;
+    box-shadow: 0px 8px 18px 2px #888888;
+}
+
+#header #user{
+    margin-left: 0;
 }
 
 #preview{
-    height: 8vh;
+    padding-top: 4vw;
+    background-color: #ffffff;
+    margin: 3vw 0vw 4vw 0vw;
+    height: 9vw;
     position: relative;
     text-align: center;
     text-anchor: middle;
-
-}
+    box-shadow: 0px 0.1px 8px #a8a8a8 inset;    
+    border-radius: 8px;
+}   
 
 #sendbox{
     float: right;

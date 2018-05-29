@@ -12,18 +12,20 @@
 </head>
 
 <body class="background-c">
+
     <div id="header">
         <button onclick="location.href = './contacts.html'" ; type="button" class="back-button background-c">&#x2B05</button>
         <img src="../images/user.jpg" id= "user" class="user" />
         <img src="../images/friend.jpeg" id="friend" class="user" />
         <script>setImg()</script>    
     </div>
+
     <div id="mainbox">
         <script>manageJson()</script>
     </div>
-    <div id="preview">
 
-    </div>
+    <div id="preview"></div>
+
     <span class="side-span">
         <ul>
             <li><button onclick="SendEmoji('message user-m')" class="side-buttons background-c">&#x1F600 </button></li>
@@ -34,6 +36,7 @@
                 <!-- <span id="cameraSpan">&#x1F4F7</span> -->
         </ul>>
     </span>
+
     <div id="keyboard">
         <table id="tchat" cellpadding=0 cellspacing=0>
             <script>BuildKeyBoard()</script>
