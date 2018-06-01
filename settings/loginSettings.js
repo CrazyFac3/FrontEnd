@@ -20,14 +20,13 @@ captureButton.addEventListener('click', () => {
 
 // Stop all video streams.
 player.srcObject.getVideoTracks().forEach(track => track.stop());
-});
 
 // Attach the video stream to the video element and autoplay.
 navigator.mediaDevices.getUserMedia(constraints)
 	.then((stream) => {
 			player.srcObject = stream;
-		}
-
+		})
+		
 // Convert file to base 64
 function getBase64(file) {
    var reader = new FileReader();

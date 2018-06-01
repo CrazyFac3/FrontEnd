@@ -1,20 +1,30 @@
 var msg = []
 var lastMessege = null
+
+function updateScroll(item_id){
+    var element = document.getElementById(item_id);
+    element.scrollBy(0,element.scrollHeight)
+    console.log("scroll height: " + element.scrollHeight)
+}
+
 function DeleteEmoji(){
     preview_box = document.getElementById("preview")
-    if(preview_box.innerHTML){
+    if(preview_box.innerText){
+        if(msg[msg.length-1] == "<br />") msg.splice(-1,1)
         msg.splice(-1,1)
         preview_box.innerHTML = msg.join("")
     }
 }
-function PrintEmoji(param) {
 
+function PrintEmoji(param) {
     preview_box = document.getElementById("preview")
     console.log(param)
-    preview_box.innerHTML += document.getElementById(param).innerHTML
-    if(msg.length % 9 == 0)
-        msg.push("<br />");
-    msg.push(document.getElementById(param).innerHTML)
+    preview_box.innerText += document.getElementById(param).innerText
+    msg.push(document.getElementById(param).innerText)
+    if(msg.length % 9 == 0) msg.push("<br />");
+    preview_box.innerHTML = msg.join("");
+    console.log("Current text in box: " + preview_box.innerText)
+    updateScroll("preview_box")    
 }
 function SendEmoji(classs, source=msg) {
     if (msg.length == 0 && source == msg) {
@@ -38,8 +48,16 @@ function SendEmoji(classs, source=msg) {
 function extractInital(str) {
 
 }
-
+function httpGet(theUrl)
+{
+    var xmlHttp = new XMLHttpRequest();
+    xmlHttp.open( "GET", theUrl, false ); // false for synchronous request
+    xmlHttp.send( null );
+    console.log(xmlHttp.responseText);
+    return xmlHttp.responseText;
+}
 function manageJson() {
+    //var str = JSON.parse(httpGet("http://192.168.13.97:8000"));
     var str = {
             "messages": {
                 "1": {
@@ -68,8 +86,8 @@ function manageJson() {
                         "message_id": "6544358758"
                 }
             }
-        
-    };
+ 
+        };
 
     if (lastMessege == null) {
         var peep = "message client-m"
