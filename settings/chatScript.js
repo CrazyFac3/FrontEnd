@@ -1,8 +1,39 @@
 //varibales
 var msg = []
+var lastMessege = null
+var toggled = 0;
 var lastMessege = -1
 var clicked = false
 //varibales
+
+function removeElement(id) {
+    // removes an element from the html (by id)
+    var elem = document.getElementById(id);
+    return elem.parentNode.removeChild(elem);
+}
+
+function closeKeyboard(){
+    var btn = document.getElementById("toggleKey");
+    console.log(toggled)
+    var mainboxele = document.getElementById("mainbox");
+    // document.getElementById("bottom_box").style.visibility = "hidden";
+    var bottom_box = document.getElementById("bottom_box");
+    var initial_mainbox_height = "45vh";
+    if(toggled == 0){
+        // removeElement("bottom_box");
+        btn.innerHTML = "⬆️";        
+        bottom_box.style.visibility = "hidden";
+        mainboxele.style.height = "100%";
+        toggled = 1;
+    }
+    else if(toggled == 1){
+        btn.innerHTML = "⬇️";
+        bottom_box.style.visibility = "visible";
+        mainboxele.style.height = "45vh";
+        console.log("is toggled: " + toggled)
+        toggled = 0;
+    }
+}
 
 function updateScroll(item_id){
     var element = document.getElementById(item_id);
