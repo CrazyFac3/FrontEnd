@@ -1,16 +1,187 @@
 .user{
     position: relative;
-    left: 35%;
+    left: 10%;
     border-radius: 50%;
-}
-div{
-    
+    margin: auto;
+    height: 15vh;
+    margin-left: 5vh;
+    max-height: 12vh;
+    min-width: 12vh;
+    max-width: 12vh;
 }
 .back-button{
-    height: 75px;
-    width: 75px;
-    background-color: transparent;
+    z-index: 999;
+    position: fixed;
+    height: 5vh;
+    width: 5vh;
     border: transparent;
-    font-size: 60px;
     float: left;
 }
+body{
+    overflow: hidden;
+}
+#mainbox{
+    top: 0;
+    height: 45vh;
+    width: 100%;
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+.message{   
+    text-align: center;
+    text-anchor: middle;
+    font-family: Arial, Helvetica, sans-serif;
+    border-radius: 10px;
+    padding: 20px;
+    margin-top: 20px;
+    min-width: 60%;
+    width: max-content;
+    padding: 0px, 0px;
+    position: relative;
+}
+.client-m{
+    float: left;
+    left: 1.5%;
+}
+
+.user-m{
+    float: right;
+    right: 1.5%;
+}
+
+
+
+#key{
+    width: 100%;
+    position: absolute;
+    bottom: 5em;
+
+}
+
+#tchat{
+    position: relative;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    width: 100%;
+}
+
+tbody{
+    height: 100px;
+    width: 100%;
+}
+
+#header{
+    align-content: center;
+    height: 15vh;
+    position: fixed;
+    z-index: 998;
+}
+
+#header img{
+    margin: auto;
+    margin-top: 2vw;
+    box-shadow: 0px 8px 18px 2px #888888;
+}
+
+.top-img {
+    padding-left: 12vw;
+    padding-right: 12vw;
+    align-content: center;
+}
+
+.user {
+    margin: 0;
+    padding: 0;
+}
+
+img#user {
+    margin-right: 4vw;
+}
+
+#mainbox {
+    padding-top: 30vw;
+}
+ 
+#bottom_box{
+    margin: auto;
+    padding: 0;
+    /* position: fixed; */
+}
+
+#preview {
+    margin-bottom: 4vw;
+}
+
+#preview_box{
+    overflow: scroll;
+    margin: 0vw 0vw 4vw 0vw;
+    padding-top: 4vw;
+    background-color: #ffffff;
+    height: 9vw;
+    position: relative;
+    text-align: center;
+    text-anchor: middle;
+    box-shadow: 0px 0.1px 8px #a8a8a8 inset;    
+    border-radius: 8px;
+}   
+
+#sendbox{
+    float: right;
+}
+
+#delete_button{
+    position: relative
+}
+
+.side-span{
+    float: right;
+    position: relative;
+}
+
+.side-buttons{
+    height: 5vh;
+    width: 5vh;
+    border: transparent;
+    float: right;
+}
+
+#keyboard{
+    position: relative;
+    bottom: 0;
+    max-width: 100%;
+    height: 25vh;
+    overflow-x: scroll;
+    overflow-y: scroll;
+}
+
+#keyboard th {
+    padding: 0.5vh;
+}
+
+#keyboard button{
+    border: none;
+    width: 100%;
+    height: 100%;
+    margin: 0.3vh;
+    background: white;
+    border-radius: 1.5vh;
+}
+
+ul{
+    list-style-type: none;
+}
+
+canvas, video{
+    display: none;
+    opacity: 0;
+}
+
+#cameraBtn{
+    background-image: url("../images/camera_icon.png");
+    background-size: cover, 5vh 5vh;
+}
+
+input{
+    opacity: 0;
+}
+

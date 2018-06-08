@@ -1,45 +1,108 @@
 body {
-	background-color: #EFF7FA;
+    background-color: #e74c3c;
+    animation: bg-color 10s infinite;
+    -webkit-animation: bg-color 10s infinite;
+}
+
+@-webkit-keyframes bg-color {
+    0% {
+        background-color: #C38D94;
+    }
+    12.5% {
+        background-color: #e74c3c;
+    }
+    25% {
+        background-color: #F7FF58;
+    }
+    37.5% {
+        background-color: #40F99B;
+    }
+    50% {
+        background-color: #1abc9c;
+    }
+    62.5% {
+        background-color: #3498db;
+    }
+    75% {
+        background-color: #9b59b6;
+    }
+    87.5% {
+        background-color: #ffffff;
+    }
+    100% {
+        background-color: #C38D94;
+    }
+}
+
+@keyframes bg-color {
+    0% {
+        background-color: #C38D94;
+    }
+    12.5% {
+        background-color: #e74c3c;
+    }
+    25% {
+        background-color: #F7FF58;
+    }
+    37.5% {
+        background-color: #40F99B;
+    }
+    50% {
+        background-color: #1abc9c;
+    }
+    62.5% {
+        background-color: #3498db;
+    }
+    75% {
+        background-color: #9b59b6;
+    }
+    87.5% {
+        background-color: #ffffff;
+    }
+    100% {
+        background-color: #C38D94;
+    }
 }
 
 .topLoginDiv {
-	position: fixed;
-	margin-top: 20%;
-	width: 100%;
+    position: fixed;
+    margin-top: 20%;
+    width: 100%;
 }
 
 img {
-	width: 65%;
-	border-radius: 50%;
-	display: block;
-	margin-left: auto;
-	margin-right: auto;
+    width: 65%;
+    border-radius: 50%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .logInDiv {
-	margin-top: 20%;
-	width: 100%;
-	position: fixed;
-	text-align: center;
+    margin-top: 20%;
+    width: 100%;
+    position: fixed;
+    text-align: center;
 }
 
 button {
-	background-position: center, center;
-	background-repeat: repeat, no-repeat;
-	background-size: cover, 140px 140px;
-	background-image: url("../images/bubble.png"), url("../images/camera_icon.png");
-	width: 20vw;
-	height: 20vw;
-	border-radius: 300px;
-	text-align: center;
+    background-position: center, center;
+    background-repeat: repeat, no-repeat;
+    background-size: cover, 140px 140px;
+    background-image: url("../images/bubble.png"), url("../images/camera_icon.png");
+    width: 20vw;
+    height: 20vw;
+    border-radius: 300px;
+    text-align: center;
 }
 
 video {
-	opacity: 0;
+    display: none;
+    opacity: 0;
 }
 
-.inputfile{
-	opacity: 0;
+.inputfile {
+    opacity: 0;
 }
 
 /*.inputfile {
@@ -49,4 +112,9 @@ video {
 	overflow: hidden;
 	position: absolute;
 	z-index: -1;
+}
+*/
+
+canvas {
+    display: none;
 }
