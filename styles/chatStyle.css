@@ -1,3 +1,6 @@
+html {
+    height: 100%;
+}
 .user{
     position: relative;
     left: 10%;
@@ -9,6 +12,7 @@
     min-width: 12vh;
     max-width: 12vh;
 }
+
 .back-button{
     z-index: 999;
     position: fixed;
@@ -17,9 +21,11 @@
     border: transparent;
     float: left;
 }
+
 body{
     overflow: hidden;
 }
+
 #mainbox{
     top: 0;
     height: 45vh;
@@ -27,6 +33,7 @@ body{
     overflow-x: hidden;
     overflow-y: scroll;
 }
+
 .message{   
     text-align: center;
     text-anchor: middle;
@@ -49,8 +56,6 @@ body{
     right: 1.5%;
 }
 
-
-
 #key{
     width: 100%;
     position: absolute;
@@ -71,7 +76,7 @@ tbody{
 }
 
 #header{
-    align-content: center;
+    margin: 0 auto;
     height: 15vh;
     position: fixed;
     z-index: 998;
@@ -84,9 +89,14 @@ tbody{
 }
 
 .top-img {
-    padding-left: 12vw;
-    padding-right: 12vw;
-    align-content: center;
+    padding-left: 24vw;
+    padding-right: 24vw;
+    background: transparent;
+    margin: auto;
+}
+
+.top-img img {
+    margin: auto;
 }
 
 .user {
@@ -99,13 +109,18 @@ img#user {
 }
 
 #mainbox {
-    padding-top: 30vw;
+    padding-top: 25vw;
 }
  
 #bottom_box{
     margin: auto;
     padding: 0;
-    /* position: fixed; */
+    z-index: 997;
+    position: absolute;
+}
+
+#toggleKey {
+    z-index: 995;
 }
 
 #preview {
@@ -134,22 +149,26 @@ img#user {
 }
 
 .side-span{
+    padding: 0;
+    padding-right: 4vw;
     float: right;
-    position: relative;
+}
+
+.side-span ul{
+    list-style-type: none;
 }
 
 .side-buttons{
-    height: 5vh;
-    width: 5vh;
+    padding: 0;
+    height: 7vh;
+    width: 7vh;
     border: transparent;
     float: right;
 }
 
 #keyboard{
-    position: relative;
-    bottom: 0;
-    max-width: 100%;
-    height: 25vh;
+    margin-bottom: 5vw;
+    max-width: 90%;
     overflow-x: scroll;
     overflow-y: scroll;
 }
@@ -184,4 +203,3 @@ canvas, video{
 input{
     opacity: 0;
 }
-

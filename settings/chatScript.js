@@ -1,5 +1,35 @@
 var msg = []
 var lastMessege = null
+var toggled = 0;
+
+function removeElement(id) {
+    // removes an element from the html (by id)
+    var elem = document.getElementById(id);
+    return elem.parentNode.removeChild(elem);
+}
+
+function closeKeyboard(){
+    var btn = document.getElementById("toggleKey");
+    console.log(toggled)
+    var mainboxele = document.getElementById("mainbox");
+    // document.getElementById("bottom_box").style.visibility = "hidden";
+    var bottom_box = document.getElementById("bottom_box");
+    var initial_mainbox_height = "45vh";
+    if(toggled == 0){
+        // removeElement("bottom_box");
+        btn.innerHTML = "⬆️";        
+        bottom_box.style.visibility = "hidden";
+        mainboxele.style.height = "100%";
+        toggled = 1;
+    }
+    else if(toggled == 1){
+        btn.innerHTML = "⬇️";
+        bottom_box.style.visibility = "visible";
+        mainboxele.style.height = "45vh";
+        console.log("is toggled: " + toggled)
+        toggled = 0;
+    }
+}
 
 function updateScroll(item_id){
     var element = document.getElementById(item_id);
@@ -26,6 +56,7 @@ function PrintEmoji(param) {
     console.log("Current text in box: " + preview_box.innerText)
     updateScroll("preview_box")    
 }
+
 function SendEmoji(classs, source=msg) {
     if (msg.length == 0 && source == msg) {
         return null
@@ -39,7 +70,7 @@ function SendEmoji(classs, source=msg) {
     else
        new_msg.innerHTML = source
     document.getElementById("mainbox").appendChild(new_msg)
-    document.getElementById("mainbox").scrollTop = document.getElementById("mainbox").scrollHeight;
+    // document.getElementById("mainbox").scrollTop = document.getElementById("mainbox").scrollHeight;
     msg = []
     if (document.getElementById("preview"))
         document.getElementById("preview").innerHTML = null
