@@ -1,4 +1,6 @@
 .background-c{
+<<<<<<< HEAD
+=======
     background: #DEE0E8;
 }
 
@@ -10,13 +12,14 @@
     background: #FFFCFC;
 }
 .grey{
+>>>>>>> af2a7cf8a0977566be798c494e6c36bf1d4ebc6b
     background: #DEE0E8;
 }
 
-.bright-blue{
+.client-m{
     background: #B0D8E5;
 }
 
-.white{
+.user-m{
     background: #FFFCFC;
 }

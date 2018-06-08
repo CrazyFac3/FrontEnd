@@ -1,6 +1,10 @@
+//varibales
 var msg = []
 var lastMessege = null
 var toggled = 0;
+var lastMessege = -1
+var clicked = false
+//varibales
 
 function removeElement(id) {
     // removes an element from the html (by id)
@@ -56,8 +60,7 @@ function PrintEmoji(param) {
     console.log("Current text in box: " + preview_box.innerText)
     updateScroll("preview_box")    
 }
-
-function SendEmoji(classs, source=msg) {
+function SendEmoji(classs, source=msg, sendToServer=true) {
     if (msg.length == 0 && source == msg) {
         return null
     }
@@ -70,91 +73,70 @@ function SendEmoji(classs, source=msg) {
     else
        new_msg.innerHTML = source
     document.getElementById("mainbox").appendChild(new_msg)
-    // document.getElementById("mainbox").scrollTop = document.getElementById("mainbox").scrollHeight;
+    if(sendToServer){
+        httpPost("http://Server_IP/U1F92A/create_message/", new_msg.innerHTML)
+        lastConv[Object.keys(lastConv).length + 1] = new_msg.innerHTML 
+    }
+    document.getElementById("mainbox").scrollTop = document.getElementById("mainbox").scrollHeight;
     msg = []
     if (document.getElementById("preview"))
         document.getElementById("preview").innerHTML = null
 
 }
-function extractInital(str) {
 
+var lastConv = null
+function updateMessages(){
+    console.log("updating")
+    var conv = JSON.parse(httpGet('http://Server_IP/U1F92A/get_conversation/?user_id=' + myId + '&friend_id=' + friendId))
+    if(Object.keys(lastConv).length != Object.keys(conv).length && lastConv != null){
+        manageJson(conv)
+    }
+    lastConv = conv
+}
+function httpPost(theUrl, massage, json_massage= {
+    "photo_pk" : myId,
+    "sender_pk" : myId,
+    "receiver_pk": friendId, 
+    "content_text": massage
+}) {
+    var xmlHttp = new XMLHttpRequest();
+    xmlHttp.open("POST", theUrl, false)
+    xmlHttp.send(JSON.stringify(json_massage))
+    return xmlHttp.responseText
 }
 function httpGet(theUrl)
 {
     var xmlHttp = new XMLHttpRequest();
     xmlHttp.open( "GET", theUrl, false ); // false for synchronous request
     xmlHttp.send( null );
-    console.log(xmlHttp.responseText);
     return xmlHttp.responseText;
 }
-function manageJson() {
-    //var str = JSON.parse(httpGet("http://192.168.13.97:8000"));
-    var str = {
-            "messages": {
-                "1": {
-                    "text": "🕡🕡🕡",
-                    "sender": "1",
-                    "message_id": "123456"
-                },
-                "2": {
-                    "text": "🕡🕡🕡",
-                    "sender": "2",
-                    "message_id": "1234567"
-                },
-                "3": {
-                    "text": "🕡🕡sdsd🕡",
-                    "sender": "2",
-                    "message_id": "12345698"
-                },
-                "4": {
-                    "text": "🕡🕡sdsdfdfbdmfbd🕡",
-                    "sender": "1",
-                    "message_id": "1234561212"
-                },
-                "5" :{
-                        "text":"🕡🕡sddmnmsbdmsbadbsadjbsd🕡",
-                        "sender": "2",
-                        "message_id": "6544358758"
-                }
-            }
- 
-        };
 
-    if (lastMessege == null) {
-        var peep = "message client-m"
-        var key2keep = null
-        var started = false
-            for(var key in str["messages"]){
-                id = str["messages"][key]["message_id"]
-                if (lastMessege == id || lastMessege == null){
-                    key2keep = key
-                    console.log(key)
-                    break
-                }
-            }
-            for (var key in str["messages"]) {
-                console.log(key)
-                if (key == key2keep || started){
-                started = true
-                new_msg = str["messages"][key]["text"]
-                sender = str["messages"][key]["sender"]
-                console.log("the sender is" + sender)
-                id = str["messages"][key]["message_id"]
-                //if(last_massge == id)
-                if (sender == 2)
-                peep = "message user-m"
-                else
-                peep  = "message client-m"
-                SendEmoji(peep, new_msg)
-                lastMessege = id 
-
-                
-                
-        }
-                             
+function manageJson(msg=null) {
+    console.log("called")
+    if(msg == null){
+        str = JSON.parse(httpGet('http://Server_IP/U1F92A/get_conversation/?user_id=' + myId +  '&friend_id=' + friendId))
+        lastConv = str
     }
+    else
+        str = msg
+    console.log(str)
+    console.log(lastMessege)
+    for (var key in str) {
+        new_msg = str[key]["content_text"]
+        sender = str[key]["sender"]
+        console.log("the sender is" + sender)
+        if (sender == myId)
+        peep = "message user-m"
+        else
+        peep  = "message client-m"
+        SendEmoji(peep, new_msg, false)
+                             
 }
+    lastMessege = key
+    console.log(lastMessege) 
 }
+
 function setImg(){
 var photo = {
     "participent":{
@@ -212,4 +194,21 @@ function BuildKeyBoard()
              keyBoard.appendChild(Row)
         }
     }
+}
+
+function setFlag(){
+    clicked = true
+}
+function SetQuitAlart()
+{
+window.addEventListener("beforeunload", function (e) {
+    var confirmationMessage = "nananana";
+    console.log(clicked)
+    if(clicked == false){
+        (e || window.event).returnValue = confirmationMessage;
+    }
+    clicked = false
+     //Gecko + IE
+    console.log(confirmationMessage)                           //Webkit, Safari, Chrome
+    });
 }

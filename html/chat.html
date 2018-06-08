@@ -3,17 +3,27 @@
 
 <head>
     <title>chat</title>
+<<<<<<< HEAD
     <link rel="stylesheet" href="../styles/chatStyle.css" />
     <link rel="stylesheet" href="../styles/colors.css" />
     <script src="../settings/loginSettings.js"></script>
     <script src="../settings/chatScript.js"></script>
     <meta charset='utf8' />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+=======
+    <link rel="stylesheet" href="../styles/chatStyle.css"/>
+    <link rel="stylesheet" href="../styles/colors.css"/>
+    <script> var myId = null; var friendId = null;</script>
+    <script src="../settings/loginSettings.js"></script>
+    <script src="../settings/chatScript.js"></script>
+    <meta charset='utf8'/>
+    <meta name="viewport" content=content="width=device-width, user-scalable=no" />
+>>>>>>> master
 </head>
 
 <body class="background-c">
 
-    <button onclick="location.href = './contacts.html'" ; type="button" class="back-button background-c">&#x2B05</button>
+    <button onclick="location.href = './contacts.html';setFlag()" ; type="button" class="back-button background-c";>&#x2B05</button>
     <div id="header">
         <div class="top-img">
             <img src="../images/user.jpg" id="user" class="user" />
@@ -57,7 +67,23 @@
             <div id="keyboard">
                 <table id="tchat" cellpadding=0 cellspacing=0>
                     <script>
-                        BuildKeyBoard()
+                        //temporary script
+            
+                        var details = JSON.parse(httpPost("http://Server_IP/U1F92A/user/register/",null,{"photo": 1111}))
+                        myId = details["user_pk"]
+                        friendId= JSON.parse(httpGet("http://Server_IP/U1F92A/user/random?user_pk=" + myId))["pk"]
+                        var i = setInterval(function(){friendId= JSON.parse(httpGet("http://Server_IP/U1F92A/user/random?user_pk=" + myId))["pk"];if(friendId != 0){main()}},1000)
+                        console.log(friendId)
+                        console.log("my id " + myId + "friend " + friendId)
+                        // temporary script
+                        function main(){
+                            clearInterval(i)
+                            manageJson()
+                            setInterval(updateMessages,1000)
+                            flag = true;
+                            BuildKeyBoard()
+                            SetQuitAlart()
+                        }
                     </script>
                 </table>
             </div>
