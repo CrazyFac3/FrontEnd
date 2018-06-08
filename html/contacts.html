@@ -4,13 +4,11 @@
 <head>
     <link rel="stylesheet" href="../styles/contacts.css"/>
     <link rel="stylesheet" href="../styles/colors.css">
+    <script src="../settings/contacts.js"></script>
+    <script>var friendId = null</script>
 </head>
 
-<<<<<<< HEAD
 <body class = "client-m">
-=======
-<body class = "background-c">
->>>>>>> af2a7cf8a0977566be798c494e6c36bf1d4ebc6b
         <div>
             <button onclick="location.href = '../html/chat.html'" type="button" class="general rand-button add-on-button"><img class="general rand-img" src="../images/question-mark.png"></button> 
         </div>
@@ -31,9 +29,10 @@
         </div>
 
     <script>
+        get_friends()
+        
         var hours_size = 
         {
-<<<<<<< HEAD
             0 : '10vh',
             1 :'10vh',
             2 : '11vh',
@@ -58,49 +57,7 @@
             21 : '20vh', 
             22 : '21vh', 
             23 : '21vh', 
-=======
-            0 : 10,
-            1 : 10,
-            2 : 11,
-            3 : 11,
-            4 : 12,
-            5 : 12,
-            6 : 13,
-            7 : 13, 
-            8 : 14, 
-            9 : 14, 
-            10 : 15, 
-            11 : 15, 
-            12 : 16, 
-            13 : 16, 
-            14 : 17, 
-            15 : 17, 
-            16 : 18, 
-            17 : 18, 
-            18 : 19, 
-            19 : 19, 
-            20 : 20, 
-            21 : 20, 
-            22 : 21, 
-            23 : 21, 
->>>>>>> af2a7cf8a0977566be798c494e6c36bf1d4ebc6b
         }
-        var photo = {
-                    "photo":{
-                        "friendImg1":"./images/friend1.jpeg",
-                        "friendImg2":"./images/friend2.jpeg",
-                        "friendImg3":"./images/friend3.jpeg",
-                        "friendImg4":"./images/friend4.jpeg",
-                        "friendImg5":"./images/friend5.jpeg"
-                    },
-                    "time_created": {
-                        "time1": "2016-05-18T 15:37:36.993048Z",
-                        "time2": "2016-05-18T 16:00:36.993048Z",
-                        "time3": "2016-05-18T 18:30:36.993048Z",
-                        "time4": "2016-05-18T 14:07:36.993048Z",
-                        "time5": "2016-05-18T 15:28:36.993048Z"
-                    }
-                };
         document.getElementById("person1").src=photo["photo"]["friendImg1"];
         document.getElementById("person2").src=photo["photo"]["friendImg2"];
         document.getElementById("person3").src=photo["photo"]["friendImg3"];
@@ -114,21 +71,21 @@
         sign_in_hour[3] = photo["time_created"]["time4"].split(" ");
         sign_in_hour[4] = photo["time_created"]["time5"].split(" ");
 
-        sign_in_hour[0] = hour1.split(":");
-        sign_in_hour[1] = hour2.split(":");
-        sign_in_hour[2] = hour3.split(":");
-        sign_in_hour[3] = hour4.split(":");
-        sign_in_hour[4] = hour5.split(":");
+        sign_in_hour[0] = sign_in_hour[0].toString().split(":");
+        sign_in_hour[1] = sign_in_hour[1].toString().split(":");
+        sign_in_hour[2] = sign_in_hour[2].toString().split(":");
+        sign_in_hour[3] = sign_in_hour[3].toString().split(":");
+        sign_in_hour[4] = sign_in_hour[4].toString().split(":");
 
         var current_hour = new Date().getHours();
 
         for (var i=0; i < sign_in_hour.length; i++)
         {
             temp_hour = current_hour - sign_in_hour[i]
-            document.getElementById("person" + i + 1).style.height = hours_size[temp_hour]
-            document.getElementById("person" + i + 1).style.width = hours_size[temp_hour]
+            document.getElementById("person" + i + 1).setAttribute("style", "height: " + hours_size[temp_hour] + "; width: " + hours_size[temp_hour]); 
         }
-    </script>
+     
+        </script>
 </body>
 
 </html>
