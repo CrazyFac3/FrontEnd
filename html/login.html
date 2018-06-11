@@ -10,8 +10,9 @@
     <div class="topLoginDiv"> <img id="crazyFaceImg" src="../images/crazy_face.png" alt="crazy face" />
       <div class="logInDiv">
         <video id="player" controls autoplay></video>
-        <button onClick="logInClicked()" id="logInButton">
-          <input class="inputfile" type="file" accept="image/*" capture />
+        <!-- <button onClick="logInClicked()" id="logInButton">         -->
+        <button id="logInButton">
+          <input id="file-input" class="inputfile" type="file" accept="image/*" capture />
         </button>
         <canvas id="canvas" width="320" height="240"></canvas>
       </div>
