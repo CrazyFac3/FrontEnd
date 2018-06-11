@@ -3,9 +3,9 @@
 
 <head>
     <link rel="stylesheet" href="../styles/contacts.css"/>
-    <link rel="stylesheet" href="../styles/colors.css">
-    <script src="../settings/contacts.js"></script>
-    <script>var friendId = null</script>
+    <link rel="stylesheet" href="../styles/colors.css"/>
+    <script src="../settings/contacts.js"></script>    
+    <script src= "../settings/loginSettings.js"></script>
 </head>
 
 <body class = "client-m">
@@ -13,79 +13,24 @@
             <button onclick="location.href = '../html/chat.html'" type="button" class="general rand-button add-on-button"><img class="general rand-img" src="../images/question-mark.png"></button> 
         </div>
         <div>
-            <button id="person1" onclick="location.href = '../html/chat.html'" type="button" class="general person1-button add-on-button"><img class="general person1-img"></button>
+            <button id="person1" onclick="location.href = '../html/chat.html';storeFriendId(1)" type="button" class="general person1-button add-on-button move"><img class="general person1-img"></button>
         </div>
         <div>
-            <button id="person2" onclick="location.href = '../html/chat.html'"  type="button" class="general person2-button add-on-button"><img class="general person2-img"></button>
+            <button id="person2" onclick="location.href = '../html/chat.html';storeFriendId(2)"  type="button" class="general person2-button add-on-button move"><img class="general person2-img"></button>
         </div>
         <div>
-            <button id="person3" onclick="location.href = '../html/chat.html'"  type="button" class="general person3-button add-on-button"><img class="general person3-img"></button>
+            <button id="person3" onclick="location.href = '../html/chat.html';storeFriendId(3)"  type="button" class="general person3-button add-on-button move"><img class="general person3-img"></button>
         </div>
         <div>
-            <button id="person4" onclick="location.href = '../html/chat.html'"  type="button" class="general person4-button add-on-button"><img class="general person4-img"></button>
+            <button id="person4" onclick="location.href = '../html/chat.html';storeFriendId(4)"  type="button" class="general person4-button add-on-button move"><img class="general person4-img"></button>
         </div>
         <div>
-            <button id="person5" onclick="location.href = '../html/chat.html'"  type="button" class="general person5-button add-on-button"><img class="general person5-img"></button>
+            <button id="person5" onclick="location.href = '../html/chat.html';storeFriendId(5)"  type="button" class="general person5-button add-on-button move"><img class="general person5-img"></button>
         </div>
+<script>
+    main()
+</script>
 
-    <script>
-        get_friends()
-        
-        var hours_size = 
-        {
-            0 : '10vh',
-            1 :'10vh',
-            2 : '11vh',
-            3 : '11vh',
-            4 : '12vh',
-            5 : '12vh',
-            6 : '13vh',
-            7 : '13vh', 
-            8 : '14vh', 
-            9 : '14vh', 
-            10 : '15vh', 
-            11 : '15vh', 
-            12 : '16vh', 
-            13 : '16vh', 
-            14 : '17vh', 
-            15 : '17vh', 
-            16 : '18vh', 
-            17 : '18vh', 
-            18 : '19vh', 
-            19 : '19vh', 
-            20 : '20vh', 
-            21 : '20vh', 
-            22 : '21vh', 
-            23 : '21vh', 
-        }
-        document.getElementById("person1").src=photo["photo"]["friendImg1"];
-        document.getElementById("person2").src=photo["photo"]["friendImg2"];
-        document.getElementById("person3").src=photo["photo"]["friendImg3"];
-        document.getElementById("person4").src=photo["photo"]["friendImg4"];
-        document.getElementById("person5").src=photo["photo"]["friendImg5"];
-
-        var sign_in_hour = []
-        sign_in_hour[0] = photo["time_created"]["time1"].split(" ");
-        sign_in_hour[1] = photo["time_created"]["time2"].split(" ");
-        sign_in_hour[2] = photo["time_created"]["time3"].split(" ");
-        sign_in_hour[3] = photo["time_created"]["time4"].split(" ");
-        sign_in_hour[4] = photo["time_created"]["time5"].split(" ");
-
-        sign_in_hour[0] = sign_in_hour[0].toString().split(":");
-        sign_in_hour[1] = sign_in_hour[1].toString().split(":");
-        sign_in_hour[2] = sign_in_hour[2].toString().split(":");
-        sign_in_hour[3] = sign_in_hour[3].toString().split(":");
-        sign_in_hour[4] = sign_in_hour[4].toString().split(":");
-
-        var current_hour = new Date().getHours();
-
-        for (var i=0; i < sign_in_hour.length; i++)
-        {
-            temp_hour = current_hour - sign_in_hour[i]
-            document.getElementById("person" + i + 1).setAttribute("style", "height: " + hours_size[temp_hour] + "; width: " + hours_size[temp_hour]); 
-        }
-     
-        </script>
 </body>
 
 </html>

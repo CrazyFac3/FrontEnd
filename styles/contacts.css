@@ -1,8 +1,7 @@
-<<<<<<< HEAD
-  
-=======
-
->>>>>>> af2a7cf8a0977566be798c494e6c36bf1d4ebc6b
+@keyframes bounce {
+    from { transform: translate3d(0, 0, 0);     }
+    to   { transform: translate3d(100px, 200px, 0); }
+  }
     body{
         overflow: hidden;
     }
@@ -19,6 +18,7 @@
     }
 
     .rand-img {
+        object-fit: cover;
         height: 15vh;
         width: 15vh;
         }
@@ -52,5 +52,11 @@
         top: 75vh;
         left: 20vh;
         }
+    .move{
+        animation: bounce 5s;
+        animation-direction: alternate;
+        animation-timing-function: cubic-bezier(.5,0.05,1,.5);
+        animation-iteration-count: infinite;
+    }
 
     

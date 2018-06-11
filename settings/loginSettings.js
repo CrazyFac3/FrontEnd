@@ -1,5 +1,5 @@
 // JavaScript Document
-const server_url = ""
+const server_url = "http://79.179.68.55:8000/U1F92A/user/register/"
 const player = document.getElementById('player');
 const canvas = document.getElementById('canvas');
 const context = canvas.getContext('2d');
@@ -24,9 +24,10 @@ function doSomethingWithFiles(fileList) {
 			break;
 		}
 	}
-
+	
 	if (file !== null) {
-		getBase64(file);
+		console.log(getBase64(file));
+		sendImage();
 		// output.src = URL.createObjectURL(file);
 	}
 }
@@ -55,8 +56,10 @@ navigator.mediaDevices.getUserMedia(constraints)
 function getBase64(file) {
 	var reader = new FileReader();
 	reader.readAsDataURL(file);
-	reader.onload = function () {
-		console.log(reader.result);
+	reader.onload = function (e) {
+		var raw =  reader.result
+		localStorage.setItem("upload", raw)
+		console.log(raw)
 	};
 	reader.onerror = function (error) {
 		alert("Error when trying to cenvert the file to base64")
@@ -64,11 +67,27 @@ function getBase64(file) {
 	};
 }
 
-function sendImage(img) {
+
+function sendImage() {
 	var user_image = {
-		"photo": getBase64(canvas)
+		"photo": localStorage.getItem("upload")
 	}
-	$.post(server_url, user_image, function () {
-		alert("image sent succesfully");
-	})
+	localStorage.removeItem("upload")
+	console.log(user_image)
+	var myId = httpPost(server_url,user_image,json_massage = user_image)
+	localStorage.setItem("myId",JSON.parse(myId)["user_pk"])
+	console.log(localStorage.getItem("myId"))
+	location.href = '../html/contacts.html'
+}
+
+function httpPost(theUrl, massage, json_massage = {
+    "photo_pk": myId,
+    "sender_pk": myId,
+    "receiver_pk": friendId,
+    "content_text": massage
+}) {
+    var xmlHttp = new XMLHttpRequest();
+    xmlHttp.open("POST", theUrl, false)
+    xmlHttp.send(JSON.stringify(json_massage))
+	return xmlHttp.responseText
 }
