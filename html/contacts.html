@@ -9,6 +9,7 @@
 </head>
 
 <body class = "client-m">
+
         <div>
             <button onclick="location.href = '../html/chat.html'" type="button" class="general rand-button add-on-button"><img class="general rand-img" src="../images/question-mark.png"></button> 
         </div>
@@ -27,8 +28,27 @@
         <div>
             <button id="person5" onclick="location.href = '../html/chat.html';storeFriendId(5)"  type="button" class="general person5-button add-on-button move"><img class="general person5-img"></button>
         </div>
+        <div id="mySidenav" class="sidenav">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            <div id= "data">
+
+            </div>
+
+        </div>
+        <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;😜 </span>
+
+<script>
+function openNav() {
+    document.getElementById("mySidenav").style.width = "250px";
+}
+
+function closeNav() {
+    document.getElementById("mySidenav").style.width = "0";
+}
+</script>
 <script>
     main()
+    upadteCurrent()
 </script>
 
 </body>
