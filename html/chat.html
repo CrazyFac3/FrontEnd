@@ -5,11 +5,11 @@
     <title>chat</title>
     <link rel="stylesheet" href="../styles/chatStyle.css"/>
     <link rel="stylesheet" href="../styles/colors.css"/>
-    <script> var myId = null; var friendId = null;</script>
+    <script src="../settings/contacts.js"></script>
     <script src="../settings/loginSettings.js"></script>
     <script src="../settings/chatScript.js"></script>
     <meta charset='utf8'/>
-    <meta name="viewport" content=content="width=device-width, user-scalable=no" />
+    <meta name="viewport" content="width=device-width, user-scalable=no" />
 </head>
 
 <body class="background-c">
@@ -26,9 +26,6 @@
     </div>
     <div id="all-box">
         <div id="mainbox">
-            <script>
-                manageJson()
-            </script>
         </div>
         <button onClick="closeKeyboard()" id="toggleKey">⬇️</button>        
         <div id="bottom_box">
@@ -58,17 +55,18 @@
             <div id="keyboard">
                 <table id="tchat" cellpadding=0 cellspacing=0>
                     <script>
+                        var myId = localStorage.getItem("myId")
+                        var friendId = localStorage.getItem("friendId")
                         //temporary script
-            
-                        var details = JSON.parse(httpPost("http://Server_IP/U1F92A/user/register/",null,{"photo": 1111}))
-                        myId = details["user_pk"]
-                        friendId= JSON.parse(httpGet("http://Server_IP/U1F92A/user/random?user_pk=" + myId))["pk"]
-                        var i = setInterval(function(){friendId= JSON.parse(httpGet("http://Server_IP/U1F92A/user/random?user_pk=" + myId))["pk"];if(friendId != 0){main()}},1000)
+                       // var details = JSON.parse(httpPost("http://79.179.68.55:8000/U1F92A/user/register/",null,{"photo": 1111}))
+                       // myId = details["user_pk"]
+                      //  friendId= JSON.parse(httpGet("http://79.179.68.55:8000/U1F92A/user/random?user_pk=" + myId))["pk"]
+                      //  var i = setInterval(function(){friendId= JSON.parse(httpGet("http://79.179.68.55:8000/U1F92A/user/random?user_pk=" + myId))["pk"];if(friendId != 0){main()}},1000)
                         console.log(friendId)
                         console.log("my id " + myId + "friend " + friendId)
                         // temporary script
+                        main()
                         function main(){
-                            clearInterval(i)
                             manageJson()
                             setInterval(updateMessages,1000)
                             flag = true;
