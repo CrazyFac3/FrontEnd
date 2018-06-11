@@ -1,1 +1,22 @@
-<!DOCTYPE html><html>  <head>    <script src="../settings/loginSettings.js"></script>    <link rel="icon" href="images/crazy_face.png"/>    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">    <link rel="stylesheet" type="text/css" href="../styles/loginStyle.css">    <title>Crazy Fac3</title>  </head>  <body>    <div class="topLoginDiv"> <img src="../images/crazy_face.png" alt="crazy face" />      <div class="logInDiv">        <video id="player" controls autoplay></video>        <button onClick="logInClicked()" id="logInButton">        <input class="inputfile" type="file" accept="image/*" capture />        </button>        <canvas id="canvas" width="320" height="240"></canvas>      </div>    </div>  </body></html>
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="icon" href="../images/crazy_face.png"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="../styles/loginStyle.css">
+    <title>Crazy Fac3</title>
+  </head>
+  <body>
+    <div class="topLoginDiv"> <img id="crazyFaceImg" src="../images/crazy_face.png" alt="crazy face" />
+      <div class="logInDiv">
+        <video id="player" controls autoplay></video>
+        <!-- <button onClick="logInClicked()" id="logInButton">         -->
+        <button id="logInButton">
+          <input id="file-input" class="inputfile" type="file" accept="image/*" capture />
+        </button>
+        <canvas id="canvas" width="320" height="240"></canvas>
+      </div>
+    </div>
+    <script src="../settings/loginSettings.js"></script>
+  </body>
+</html>

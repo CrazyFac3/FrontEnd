@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html id="html">
-
-<head>
+    
+    <head>
     <title>chat</title>
     <link rel="stylesheet" href="../styles/chatStyle.css"/>
     <link rel="stylesheet" href="../styles/colors.css"/>
@@ -21,17 +21,23 @@
             <img src="../images/friend.jpeg" id="friend" class="user" />
         </div>
         <script>
-            setImg()
+            // setImg()
         </script>
     </div>
     <div id="all-box">
         <div id="mainbox">
+<<<<<<< HEAD
+=======
+            <script>
+                // manageJson()
+            </script>
+>>>>>>> 55d2e2b30f94bf432e6dd5ea1823998c0a3ed940
         </div>
-        <button onClick="closeKeyboard()" id="toggleKey">⬇️</button>        
+        <button onClick="toggleKeyboard()" id="toggleKey">⬇️</button>        
+        <div id="preview_box">
+            <div id="preview"></div>
+        </div>
         <div id="bottom_box">
-            <div id="preview_box">
-                <div id="preview"></div>
-            </div>
 
             <span class="side-span">
                 <ul>
@@ -58,6 +64,7 @@
                         var myId = localStorage.getItem("myId")
                         var friendId = localStorage.getItem("friendId")
                         //temporary script
+<<<<<<< HEAD
                        // var details = JSON.parse(httpPost("http://79.179.68.55:8000/U1F92A/user/register/",null,{"photo": 1111}))
                        // myId = details["user_pk"]
                       //  friendId= JSON.parse(httpGet("http://79.179.68.55:8000/U1F92A/user/random?user_pk=" + myId))["pk"]
@@ -73,6 +80,25 @@
                             BuildKeyBoard()
                             SetQuitAlart()
                         }
+=======
+                        manageJson();
+                        BuildKeyBoard();
+                        // var details = JSON.parse(httpPost("http://Server_IP/U1F92A/user/register/",null,{"photo": 1111}))
+                        // myId = details["user_pk"]
+                        // friendId= JSON.parse(httpGet("http://Server_IP/U1F92A/user/random?user_pk=" + myId))["pk"]
+                        // var i = setInterval(function(){friendId= JSON.parse(httpGet("http://Server_IP/U1F92A/user/random?user_pk=" + myId))["pk"];if(friendId != 0){main()}},1000)
+                        // console.log(friendId)
+                        // console.log("my id " + myId + "friend " + friendId)
+                        // // temporary script
+                        // function main(){
+                        //     clearInterval(i)
+                        //     manageJson()
+                        //     setInterval(updateMessages,1000)
+                        //     flag = true;
+                        //     BuildKeyBoard()
+                        //     SetQuitAlart()
+                        // }
+>>>>>>> 55d2e2b30f94bf432e6dd5ea1823998c0a3ed940
                     </script>
                 </table>
             </div>
