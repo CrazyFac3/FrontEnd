@@ -2,6 +2,7 @@ var friendId = null;
 var myId=null
 var lst = []
 var counter= 0;
+var lastFriends
 var photo = {
     "photo":{
         "friendImg1":"",
@@ -94,7 +95,7 @@ class IntervalArray{
     }
     executeInterval() {
         var self = this;
-        self.inter = setInterval(function(){friendId= JSON.parse(httpGet("http://79.179.68.55:8000/U1F92A/user/random?user_pk=" + myId)); if(friendId != 0){console.log(self.id); assign_id(self.id)}},200)
+        self.inter = setInterval(function(){friendId= JSON.parse(httpGet("http://79.179.68.55:8000/U1F92A/user/random?user_pk=" + myId)); if(friendId["pk"] != 0){console.log(friendId); assign_id(self.id)}},1000)
     }
     
 }
@@ -184,4 +185,28 @@ const request = async (pk,sNum) => {
 
 function storeFriendId(i){
     localStorage.setItem("friendId",lst[i-1].idFa)
+}
+function setFriendId(id){
+    localStorage.setItem("friendId",id)
+}
+function upadteCurrent(){
+    console.log("function running")
+    var in2 = setInterval(function(){var jrsponse = JSON.parse(httpGet("http://79.179.68.55:8000/U1F92A/user/friends?user_pk=" + localStorage.getItem("myId")));createfriend(jrsponse)},2000)
+
+
+}
+function createfriend(myConvos){
+    var section = document.getElementById("data")
+    if(lastFriends !=null && lastFriends["users"].length != myConvos["users"].length || lastFriends == null){
+        section.innerHTML = ""
+        for(item in myConvos["users"]){
+            console.log(myConvos["users"][0]["user_pk"])
+            var t = document.createElement("a")
+           t.setAttribute("onclick","setFriendId(" + myConvos["users"][this.item]['user_pk'] + ");location.href = '../html/chat.html'")
+           t.innerHTML = "😀😀😀";
+            section.appendChild(t)
+       }
+       lastFriends = myConvos
+       console.log(lastFriends)
+    }
 }
