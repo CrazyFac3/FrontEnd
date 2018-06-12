@@ -4,6 +4,7 @@ var lastMessege = null
 var toggled = 0;
 var lastMessege = -1
 var clicked = false
+var ip = "crazyface-env.4fpcmyq8xy.us-east-2.elasticbeanstalk.com"
 //varibales
 
 function removeElement(id) {
@@ -72,7 +73,7 @@ function SendEmoji(classs, source = msg, sendToServer = true) {
         new_msg.innerHTML = source
     document.getElementById("mainbox").appendChild(new_msg)
     if(sendToServer){
-        httpPost('http://79.179.68.55:8000/U1F92A/create_message/', new_msg.innerHTML)
+        httpPost(ip + '/U1F92A/create_message/', new_msg.innerHTML)
         lastConv[Object.keys(lastConv).length + 1] = new_msg.innerHTML 
     }
     document.getElementById("mainbox").scrollTop = document.getElementById("mainbox").scrollHeight;
@@ -86,7 +87,7 @@ var lastConv = null
 
 function updateMessages() {
     console.log("updating")
-    var conv = JSON.parse(httpGet('http://79.179.68.55:8000/U1F92A/get_conversation/?user_id=' + myId + '&friend_id=' + friendId))
+    var conv = JSON.parse(httpGet(ip + '/U1F92A/get_conversation/?user_id=' + myId + '&friend_id=' + friendId))
     if(Object.keys(lastConv).length != Object.keys(conv).length && lastConv != null){
         manageJson(conv)
     }
@@ -115,7 +116,7 @@ function httpGet(theUrl) {
 function manageJson(msg = null) {
     console.log("called")
     if(msg == null){
-        str = JSON.parse(httpGet('http://79.179.68.55:8000/U1F92A/get_conversation/?user_id=' + myId +  '&friend_id=' + friendId))
+        str = JSON.parse(httpGet(ip + '/U1F92A/get_conversation/?user_id=' + myId +  '&friend_id=' + friendId))
         lastConv = str
     } else
         str = msg

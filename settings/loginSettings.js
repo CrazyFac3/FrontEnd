@@ -1,10 +1,10 @@
 // JavaScript Document
-const server_url = "http://79.179.68.55:8000/U1F92A/user/register/"
+const server_url = ip + "/U1F92A/user/register/"
 const player = document.getElementById('player');
 const canvas = document.getElementById('canvas');
 const context = canvas.getContext('2d');
 const captureButton = document.getElementById('logInButton');
-
+var ip = "crazyface-env.4fpcmyq8xy.us-east-2.elasticbeanstalk.com"
 // get the input image from the image selector
 const fileInput = document.getElementById('file-input');
 fileInput.addEventListener('change', (e) => doSomethingWithFiles(e.target.files));
@@ -75,7 +75,7 @@ function sendImage() {
 	localStorage.removeItem("upload")
 	console.log(user_image)
 	if (localStorage.getItem("myId") != null) {
-		httpGet("http://79.179.68.55:8000/U1F92A/delete_user/?user_pk=" + localStorage.getItem("myId"))
+		httpGet(ip + "/U1F92A/delete_user/?user_pk=" + localStorage.getItem("myId"))
 	  }
 	var myId = httpPost(server_url,user_image,json_massage = user_image)
 	localStorage.setItem("myId",JSON.parse(myId)["user_pk"])

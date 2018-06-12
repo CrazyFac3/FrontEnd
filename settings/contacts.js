@@ -3,6 +3,7 @@ var myId=null
 var lst = []
 var counter= 0;
 var lastFriends
+var ip = "crazyface-env.4fpcmyq8xy.us-east-2.elasticbeanstalk.com"
 var photo = {
     "photo":{
         "friendImg1":"",
@@ -95,7 +96,7 @@ class IntervalArray{
     }
     executeInterval() {
         var self = this;
-        self.inter = setInterval(function(){friendId= JSON.parse(httpGet("http://79.179.68.55:8000/U1F92A/user/random?user_pk=" + myId)); if(friendId["pk"] != 0){console.log(friendId); assign_id(self.id)}},1000)
+        self.inter = setInterval(function(){friendId= JSON.parse(httpGet(ip + "/U1F92A/user/random?user_pk=" + myId)); if(friendId["pk"] != 0){console.log(friendId); assign_id(self.id)}},1000)
     }
     
 }
@@ -159,7 +160,7 @@ function assign_photo(){
 }
 const request = async (pk,sNum,style1="") => {
     console.log(pk)
-    const response1 =  fetch('http://79.179.68.55:8000/U1F92A/get_photo_json/' + pk).then(response => {
+    const response1 =  fetch(ip + '/U1F92A/get_photo_json/' + pk).then(response => {
         const reader = response.body.getReader();
         return new ReadableStream({
             start(controller) {
@@ -195,7 +196,7 @@ function setFriendId(id){
 }
 function upadteCurrent(){
     console.log("function running")
-    var in2 = setInterval(function(){var jrsponse = JSON.parse(httpGet("http://79.179.68.55:8000/U1F92A/user/friends?user_pk=" + localStorage.getItem("myId")));createfriend(jrsponse)},2000)
+    var in2 = setInterval(function(){var jrsponse = JSON.parse(httpGet(ip + "/U1F92A/user/friends?user_pk=" + localStorage.getItem("myId")));createfriend(jrsponse)},2000)
 
 
 }
