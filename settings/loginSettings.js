@@ -74,6 +74,9 @@ function sendImage() {
 	}
 	localStorage.removeItem("upload")
 	console.log(user_image)
+	if (localStorage.getItem("myId") != null) {
+		httpGet("http://79.179.68.55:8000/U1F92A/delete_user/?user_pk=" + localStorage.getItem("myId"))
+	  }
 	var myId = httpPost(server_url,user_image,json_massage = user_image)
 	localStorage.setItem("myId",JSON.parse(myId)["user_pk"])
 	console.log(localStorage.getItem("myId"))
@@ -90,4 +93,11 @@ function httpPost(theUrl, massage, json_massage = {
     xmlHttp.open("POST", theUrl, false)
     xmlHttp.send(JSON.stringify(json_massage))
 	return xmlHttp.responseText
+}
+
+function httpGet(theUrl) {
+    var xmlHttp = new XMLHttpRequest();
+    xmlHttp.open("GET", theUrl, false); // false for synchronous request
+    xmlHttp.send(null);
+    return xmlHttp.responseText;
 }

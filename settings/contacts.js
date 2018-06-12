@@ -77,7 +77,7 @@ function main(){
         console.log("person" + x)
         document.getElementById("person" + x).setAttribute("style", "height: " + hours_size[temp_hour] + "; width: " + hours_size[temp_hour]); 
     }
-    setTimeout(function(){console.log(photo["photo"]["friendImg1"]); assign_photo()},200)
+    setTimeout(function(){console.log(photo["photo"]["friendImg1"]); assign_photo()},1000)
 }
 class IntervalArray{
     constructor(id1){
@@ -101,6 +101,7 @@ class IntervalArray{
 }
 function get_friends()
 {
+    lst= []
     myId = localStorage.getItem("myId")
     console.log(myId)
     //var details = JSON.parse(httpPost("http://79.179.68.55:8000/U1F92A/user/register/",null,{"photo": 1111}))
@@ -152,10 +153,12 @@ function assign_photo(){
     for(var i = 1; i<6; i++){
         console.log(photo["photo"]["friendImg1"])
         var pk = photo["photo"]["friendImg"+ i]
-        request(pk,i)
+        console.log(pk)
+        request(pk,"person" + i,"height: 15vh; width: 15vh;")
     }
 }
-const request = async (pk,sNum) => {
+const request = async (pk,sNum,style1="") => {
+    console.log(pk)
     const response1 =  fetch('http://79.179.68.55:8000/U1F92A/get_photo_json/' + pk).then(response => {
         const reader = response.body.getReader();
         return new ReadableStream({
@@ -179,9 +182,10 @@ const request = async (pk,sNum) => {
         .then(stream => new Response(stream))
         .then(response => response.blob())
         .then(blob =>URL.createObjectURL(blob))
-        .then(url =>  {var xx = JSON.parse(httpGet(url))["base64"]; document.getElementById("person" + sNum).setAttribute("style","background: url(" + xx + "); height: 15vh; width: 15vh; ")})
+        .then(url =>  {var xx = JSON.parse(httpGet(url))["base64"]; document.getElementById(sNum).setAttribute("style","background: url(" + xx + ");background-repeat: no-repeat; background-size: cover;" + style1)})
         .catch(err => console.error(err));
 }
+
 
 function storeFriendId(i){
     localStorage.setItem("friendId",lst[i-1].idFa)
@@ -203,7 +207,8 @@ function createfriend(myConvos){
             console.log(myConvos["users"][0]["user_pk"])
             var t = document.createElement("a")
            t.setAttribute("onclick","setFriendId(" + myConvos["users"][this.item]['user_pk'] + ");location.href = '../html/chat.html'")
-           t.innerHTML = "😀😀😀";
+           t.setAttribute("id","temp" + item)
+           request(myConvos["users"][item]["photo_pk"],"temp" + item, "height: 5vh; width: 5vh; padding: 2vh;")
             section.appendChild(t)
        }
        lastFriends = myConvos

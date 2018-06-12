@@ -3,6 +3,7 @@
     
     <head>
     <title>chat</title>
+    <link rel="icon" href="../images/crazy_face.png"/>
     <link rel="stylesheet" href="../styles/chatStyle.css"/>
     <link rel="stylesheet" href="../styles/colors.css"/>
     <script src="../settings/contacts.js"></script>
@@ -17,8 +18,8 @@
     <button onclick="location.href = './contacts.html';setFlag()" ; type="button" class="back-button background-c";>&#x2B05</button>
     <div id="header">
         <div class="top-img">
-            <img src="../images/user.jpg" id="user" class="user" />
-            <img src="../images/friend.jpeg" id="friend" class="user" />
+            <img  id="user" class="user" />
+            <img  id="friend" class="user" />
         </div>
         <script>
             // setImg()
@@ -57,6 +58,8 @@
                     <script>
                         var myId = localStorage.getItem("myId")
                         var friendId = localStorage.getItem("friendId")
+                        request(myId,"user")
+                        request(friendId,"friend")
                         //temporary script
                        // var details = JSON.parse(httpPost("http://79.179.68.55:8000/U1F92A/user/register/",null,{"photo": 1111}))
                        // myId = details["user_pk"]
@@ -81,3 +84,5 @@
 </body>
 
 </html>
+
+
