@@ -168,7 +168,7 @@ img#user {
 
 #keyboard{
     margin-bottom: 5vw;
-    max-width: 90%;
+    max-width: 45vh;
     overflow-x: scroll;
     overflow-y: scroll;
 }
