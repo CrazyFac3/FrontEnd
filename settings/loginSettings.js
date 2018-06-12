@@ -1,10 +1,10 @@
 // JavaScript Document
+var ip = "crazyface-env.4fpcmyq8xy.us-east-2.elasticbeanstalk.com"
 const server_url = ip + "/U1F92A/user/register/"
 const player = document.getElementById('player');
 const canvas = document.getElementById('canvas');
 const context = canvas.getContext('2d');
 const captureButton = document.getElementById('logInButton');
-var ip = "crazyface-env.4fpcmyq8xy.us-east-2.elasticbeanstalk.com"
 // get the input image from the image selector
 const fileInput = document.getElementById('file-input');
 fileInput.addEventListener('change', (e) => doSomethingWithFiles(e.target.files));
