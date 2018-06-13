@@ -1,5 +1,5 @@
 // JavaScript Document
-var ip = "crazyface-env.4fpcmyq8xy.us-east-2.elasticbeanstalk.com"
+var ip = "https://crazyface-env.4fpcmyq8xy.us-east-2.elasticbeanstalk.com"
 const server_url = ip + "/U1F92A/user/register/"
 const player = document.getElementById('player');
 const canvas = document.getElementById('canvas');
@@ -75,11 +75,19 @@ function sendImage() {
 	localStorage.removeItem("upload")
 	console.log(user_image)
 	if (localStorage.getItem("myId") != null) {
-		httpGet(ip + "/U1F92A/delete_user/?user_pk=" + localStorage.getItem("myId"))
+		//httpGet(ip + "/U1F92A/delete_user/?user_pk=" + localStorage.getItem("myId"))
 	  }
-	var myId = httpPost(server_url,user_image,json_massage = user_image)
-	localStorage.setItem("myId",JSON.parse(myId)["user_pk"])
-	console.log(localStorage.getItem("myId"))
+	finish(user_image)
+}
+	function finish(user_image){
+
+	var a = postData(ip + '/U1F92A/user/register/', user_image)
+	.catch(error => console.error(error))
+	console.log("local debug" + localStorage.getItem("myId"))
+	//console.log(user_image)
+	//var myId = httpPost(server_url,user_image,json_massage = user_image)
+	//localStorage.setItem("myId",JSON.parse(myId)["user_pk"])
+	//console.log(localStorage.getItem("myId"))
 	location.href = '../html/contacts.html'
 }
 
@@ -89,7 +97,8 @@ function httpPost(theUrl, massage, json_massage = {
     "receiver_pk": friendId,
     "content_text": massage
 }) {
-    var xmlHttp = new XMLHttpRequest();
+	var xmlHttp = new XMLHttpRequest();
+	console.log(theUrl)
     xmlHttp.open("POST", theUrl, false)
     xmlHttp.send(JSON.stringify(json_massage))
 	return xmlHttp.responseText
@@ -100,4 +109,40 @@ function httpGet(theUrl) {
     xmlHttp.open("GET", theUrl, false); // false for synchronous request
     xmlHttp.send(null);
     return xmlHttp.responseText;
+}
+
+
+
+function postData(url, data) {
+  // Default options are marked with *
+  console.log(data)
+  return fetch(url, {
+    body: JSON.stringify(data), // must match 'Content-Type' header
+    method: 'POST', // *GET, POST, PUT, DELETE, etc.
+  })
+  .then(response => {
+	const reader = response.body.getReader();
+	return new ReadableStream({
+		start(controller) {
+		  return pump();
+		  function pump() {
+			return reader.read().then(({ done, value }) => {
+			  // When no more data needs to be consumed, close the stream
+			  if (done) {
+				  controller.close();
+				  return;
+			  }
+			  // Enqueue the next data chunk into our target stream
+			  controller.enqueue(value);
+			  return pump();
+			});
+		  }
+		}  
+	  })
+	})
+	.then(stream => new Response(stream))
+	.then(response => response.blob())
+	.then(blob =>URL.createObjectURL(blob))
+	.then(url =>  {var xx = JSON.parse(httpGet(url))["user_pk"]; Window.localStorage.setItem("myId",xx);console.log(xx)})
+	.catch(err => console.error(err));
 }
