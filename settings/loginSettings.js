@@ -1,5 +1,5 @@
 // JavaScript Document
-var ip = "https://crazyface-env.4fpcmyq8xy.us-east-2.elasticbeanstalk.com"
+var ip = "http://crazyface-env.4fpcmyq8xy.us-east-2.elasticbeanstalk.com"
 const server_url = ip + "/U1F92A/user/register/"
 const player = document.getElementById('player');
 const canvas = document.getElementById('canvas');
@@ -75,19 +75,20 @@ function sendImage() {
 	localStorage.removeItem("upload")
 	console.log(user_image)
 	if (localStorage.getItem("myId") != null) {
-		//httpGet(ip + "/U1F92A/delete_user/?user_pk=" + localStorage.getItem("myId"))
+		httpGet(ip + "/U1F92A/delete_user/?user_pk=" + localStorage.getItem("myId"))
+		localStorage.removeItem("myId")
 	  }
 	finish(user_image)
 }
 	function finish(user_image){
 
-	var a = postData(ip + '/U1F92A/user/register/', user_image)
-	.catch(error => console.error(error))
-	console.log("local debug" + localStorage.getItem("myId"))
+	//var a = postData(ip + '/U1F92A/user/register/', user_image)
+	//.catch(error => console.error(error))
+	//console.log("local debug" + localStorage.getItem("myId"))
 	//console.log(user_image)
-	//var myId = httpPost(server_url,user_image,json_massage = user_image)
-	//localStorage.setItem("myId",JSON.parse(myId)["user_pk"])
-	//console.log(localStorage.getItem("myId"))
+	var myId = httpPost(server_url,user_image,json_massage = user_image)
+	localStorage.setItem("myId",JSON.parse(myId)["user_pk"])
+	console.log(localStorage.getItem("myId"))
 	location.href = '../html/contacts.html'
 }
 
